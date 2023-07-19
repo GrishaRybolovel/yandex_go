@@ -9,8 +9,8 @@ import json
 def time_diagram(request):
     prices = Price.objects.order_by('created')
     # Prepare data for plotting
-    price_values = [price.price for price in prices]
-    created_values = [str(price.created) for price in prices]
+    price_values = [price.price for price in prices][int(len(prices) / 2):]
+    created_values = [str(price.created) for price in prices][int(len(prices) / 2):]
     print(price_values)
     print(created_values)
 
