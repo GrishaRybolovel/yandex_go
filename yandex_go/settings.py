@@ -77,9 +77,13 @@ WSGI_APPLICATION = "yandex_go.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'innofarm_meae',
+        'USER': 'innofarm_meae_user',
+        'PASSWORD': 'uJYei41Vqx5uiz8o2tF5ThL8xrt40Tyu',
+        'HOST': 'dpg-ciqqavunqql4qa34l8eg-a',
+        'PORT': '5432'
     }
 }
 
