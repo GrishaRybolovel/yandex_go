@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Time Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="timeDiagram"></canvas>
+
+    <script>
+        window.onload = function() {
+            var priceValues = {{ price_values|safe }};
+            var createdValues = {{ created_values|safe }};
+
+            // Convert createdValues to JavaScript Date objects
+            var formattedDates = createdValues.map(function (created) {
+                return new Date(created);
+            });
+
+            // Chart configuration
+            var ctx = document.getElementById('timeDiagram').getContext('2d');
+            window.myPie = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: formattedDates,
+                    datasets: [{
+                        label: 'Price',
+                        data: {{ price_values|safe }},
+                        borderColor: 'blue',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        };
+    </script>
+</body>
+</html>
